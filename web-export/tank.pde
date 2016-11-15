@@ -1,12 +1,12 @@
 ship player1, player2;
 newton physics;
-PImage BG, boatImage;
+PImage BG, tankImage; 
 float increment = 0.02;
 PImage buffer;
 water lake;
 void setup(){
-  boatImage = loadImage("boat.png");
-    boatImage.resize(int(boatImage.width/1.5),int(boatImage.height/1.5));
+  tankImage = loadImage("tank.png");
+    tankImage.resize(int(tankImage.width/1.5),int(tankImage.height/1.5));
   physics = new newton();
   smooth();
   size(700,700);
@@ -19,7 +19,7 @@ void setup(){
 }
 
 void draw(){
-  background(50,100,200);
+  background(10,100,0);
   //lake.ripple();
   //lake.drawImage();
   //image(buffer,0,0);
@@ -27,6 +27,9 @@ void draw(){
   player1.display();
   player2.display();
   //physics.display();
+  textSize(60);
+  text(player2.hits, 10, 50);
+  text(player1.hits, width-100, height-50);
 }
 
 
@@ -61,7 +64,7 @@ class ship{
     translate(loc.x,loc.y);
     rotate(heading+radians(-90));
 
-    image(boatImage,-boatImage.width/2,-boatImage.height/2);
+    image(tankImage,-tankImage.width/2,-tankImage.height/2);
 
     popMatrix();
     //pHeading = heading;
@@ -125,25 +128,8 @@ class ship{
     strokeWeight(0);
     translate(loc.x,loc.y);
     rotate(heading+radians(90));
-    if (leftLoaded>=1){
-      rect(-boatImage.width/2+4,-9,10,4);
-    }
-    if (leftLoaded>=2){
-      rect(-boatImage.width/2+3,4,10,4);
-    }
-   if (leftLoaded>=3){
-      rect(-boatImage.width/2+3,17,10,4);
-   }
-   
-    if (rightLoaded>=1){
-      rect(+boatImage.width/2-4,-9,-10,4);
-    }
-    if (rightLoaded>=2){
-      rect(+boatImage.width/2-3,4,-10,4);
-    }
-   if (rightLoaded>=3){
-      rect(+boatImage.width/2-3,17,-10,4);
-   }
+    
+ 
   
    
    
@@ -412,7 +398,7 @@ void keyReleased(){
 class newton{
   sManager shellManager;
   spManager sparkManager;
-  float buff = boatImage.width/2+15;
+  float buff = tankImage.width/2+15;
   
   newton(){
 
@@ -424,12 +410,12 @@ class newton{
     //print(player1.hits);
     if (player1.hits>=20){
       endGame();
-      text("Arrow keys win!", width/2,height/2);
+      text("Player 1 Wins!", width/2,height/2);
       
     }
     if (player2.hits>=20){
       endGame();
-      text("WASD wins!", width/2,height/2);
+      text("Player 2 wins!", width/2,height/2);
       
     }
     shellManager.display();
@@ -502,15 +488,15 @@ class sManager{
         shells.remove(i);
       }
       if (shellTest.firedBy != test){
-      PVector point1 = new PVector(test.loc.x + cos(test.heading)*(boatImage.height/2-15), test.loc.y + sin(test.heading)*(boatImage.height/2-15));
-      PVector point2 = new PVector(test.loc.x + cos(test.heading)*(boatImage.height/2-15), test.loc.y + sin(test.heading)*(boatImage.height/2-15));
-      PVector point3 = new PVector(test.loc.x + cos(test.heading)*-(boatImage.height/2-16), test.loc.y + sin(test.heading)*-(boatImage.height/2-16));
-      PVector point4 = new PVector(test.loc.x + cos(test.heading)*-(boatImage.height/2-16), test.loc.y + sin(test.heading)*-(boatImage.height/2-16));
+      PVector point1 = new PVector(test.loc.x + cos(test.heading)*(tankImage.height/2-15), test.loc.y + sin(test.heading)*(tankImage.height/2-15));
+      PVector point2 = new PVector(test.loc.x + cos(test.heading)*(tankImage.height/2-15), test.loc.y + sin(test.heading)*(tankImage.height/2-15));
+      PVector point3 = new PVector(test.loc.x + cos(test.heading)*-(tankImage.height/2-16), test.loc.y + sin(test.heading)*-(tankImage.height/2-16));
+      PVector point4 = new PVector(test.loc.x + cos(test.heading)*-(tankImage.height/2-16), test.loc.y + sin(test.heading)*-(tankImage.height/2-16));
       
-      point1 = new PVector(point1.x+cos(test.heading-radians(90))*(boatImage.width/2-8), point1.y+sin(test.heading-radians(90))*(boatImage.width/2-8));
-       point2 = new PVector(point2.x+cos(test.heading+radians(90))*(boatImage.width/2-8), point2.y+sin(test.heading+radians(90))*(boatImage.width/2-8));      
-       point3 = new PVector(point3.x+cos(test.heading-radians(90))*(boatImage.width/2-3), point3.y+sin(test.heading-radians(90))*(boatImage.width/2-3));
-       point4 = new PVector(point4.x+cos(test.heading+radians(90))*(boatImage.width/2-3), point4.y+sin(test.heading+radians(90))*(boatImage.width/2-3));
+      point1 = new PVector(point1.x+cos(test.heading-radians(90))*(tankImage.width/2-8), point1.y+sin(test.heading-radians(90))*(tankImage.width/2-8));
+       point2 = new PVector(point2.x+cos(test.heading+radians(90))*(tankImage.width/2-8), point2.y+sin(test.heading+radians(90))*(tankImage.width/2-8));      
+       point3 = new PVector(point3.x+cos(test.heading-radians(90))*(tankImage.width/2-3), point3.y+sin(test.heading-radians(90))*(tankImage.width/2-3));
+       point4 = new PVector(point4.x+cos(test.heading+radians(90))*(tankImage.width/2-3), point4.y+sin(test.heading+radians(90))*(tankImage.width/2-3));
       //ellipse(point1.x,point1.y,5,5);
       //ellipse(point3.x,point3.y,5,5);
       //ellipse(point2.x,point2.y,5,5);
@@ -721,4 +707,3 @@ class water{
     }
   }
 }
-
