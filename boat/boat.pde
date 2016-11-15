@@ -410,12 +410,12 @@ class newton{
     //print(player1.hits);
     if (player1.hits>=20){
       endGame();
-      text("Arrow keys win!", width/2,height/2);
+      text("Player 1 Wins!", width/2,height/2);
       
     }
     if (player2.hits>=20){
       endGame();
-      text("WASD wins!", width/2,height/2);
+      text("Player 2 wins!", width/2,height/2);
       
     }
     shellManager.display();
