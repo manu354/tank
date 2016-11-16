@@ -10,7 +10,7 @@ void setup(){
   physics = new newton();
   smooth();
   size(700,700);
-  BG = loadImage("BG.png");
+  //BG = loadImage("BG.png");
 
     lake = new water();
     player1 = new ship(100,100);
@@ -92,10 +92,10 @@ class ship{
    momentum.limit(maxSpeed);
   }
   void reload(){
-    if (frameCount - leftLast>60){
+    if (frameCount - leftLast>10){
       leftLoaded=3;
     }
-    if (frameCount - rightLast>60){
+    if (frameCount - rightLast>10){
       rightLoaded=3;
     }
     
@@ -158,6 +158,7 @@ class ship{
         side = "right";
       }
       else{
+        fireAngle += radians(180);
         leftLoaded=0;
         leftLast = frameCount;
         side = "left";
@@ -166,10 +167,7 @@ class ship{
       //(loc.x+cos(heading+radians(90))*10,loc.y+sin(heading+radians(90))*10)
     
     if ((side=="left" && PLeftLoaded == 3) || (side=="right" && PRightLoaded == 3)){
-        physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*10,loc.y+sin(heading)*10), fireAngle-radians(90 +random(-innacuracy,innacuracy)), this) ;
-       physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*-10,loc.y+sin(heading)*-10), fireAngle-radians(90 +random(-innacuracy,innacuracy)), this) ;
-
-       physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*0,loc.y+sin(heading)*0), fireAngle-radians(90 +random(-innacuracy,innacuracy)),this) ;//
+       physics.shellManager.makeShell(new PVector(loc.x+cos(heading),loc.y+sin(heading)), fireAngle-radians(-180 +random(-innacuracy,innacuracy)), this) ;
   }}
   }
   
@@ -638,8 +636,8 @@ class water{
   float offInc = 0.02;
   float windDir = radians(180);
   float xoff = offSetX;
-  int[][] heightMap = new int[BG.width][BG.height];
-  int[][] rippleMap = new int[BG.width][BG.height];
+  int[][] heightMap = new int[400][400];
+  int[][] rippleMap = new int[400][400];
   float xnoise = 0.0;
   float ynoise = 0.0;
   float inc = .0000006;
