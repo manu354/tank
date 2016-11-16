@@ -1,77 +1,532 @@
 <!DOCTYPE html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>boat : Built with Processing and Processing.js</title>
-		<link rel="icon"  type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQAAVzABAEAjBQAaDwYAWjUGAGE6CQBrQQ0ATS8PAFhAJwBUQC8AbFI6AHVXPACBZk4A4NrWAPb19QAAAAAAAMmZmZmZmgAJIwAAAAAAcMIjPjA+PjAKpxIuMDMzMAm0Ii4zMzMACaIiLt3dMAAJtyIuIzPQAAm0Un5yM+IzKLRkfncy4iIotRF+dyLkIiq0QX53F+EiGrQUTkd34iIatEVu7u5iIVrBVVRBRFRVbAtGZGZla2uwAMu7u7u8vADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA" />
-		<meta name="Generator" content="Processing" />
-		<!-- - - - - - - - - - - - - - - - - - - - - 
-		+
-		+    Wondering how this works? 
-		+
-		+    Go to: http://processing.org/
-		+    and: http://processingjs.org/
-		+
-		+ - - - - - - - - - - - - - - - - - - - - -->
-		<style type="text/css">
-	body {
-	  background-color: #333; color: #bbb; line-height: normal;
-	  font-family: Lucida Grande, Lucida Sans, Arial, Helvetica Neue, Verdana, Geneva, sans-serif;
-	  font-size: 11px; font-weight: normal; text-decoration: none;
-		  line-height: 1.5em;
-	}
-	a img { 
-		border: 0px solid transparent;
-	}
-	a, a:link, a:visited, a:active, a:hover { 
-		color: #cdcdcd; text-decoration: underline;
-	}
-	h1 {
-	    font-family: Arial, Helvetica Neue, Verdana, Geneva, sans-serif;
-		width: 100%; letter-spacing: 0.1em;
-		margin-bottom: 1em; font-size: 1.65em;
-	}
-	canvas { 
-		display: block; 
-		outline: 0px; 
-		margin-bottom: 1.5em; 
-	}
-	#content { 
-		margin: 50px auto 0px auto; padding: 25px 25px 15px 25px;
-		width: 700px; min-width: 300px; overflow: auto;
-		border-left: 1px solid #444; border-top: 1px solid #444; 
-		border-right: 1px solid #333; border-bottom: 1px solid #333;
-		background-color: #3d3d3d;
-	}
-		</style>
-		<!--[if lt IE 9]>
-			<script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
-		<![endif]-->
-		<script src="processing.js" type="text/javascript"></script>
-		<script type="text/javascript">
-// convenience function to get the id attribute of generated sketch html element
-function getProcessingSketchId () { return 'boat'; }
-</script>
+<html lang="en">
 
-	</head>
-	<body>
-		<div id="content">
-			<div>
-				<canvas id="boat" data-processing-sources="boat.pde" 
-						width="700" height="700">
-					<p>Your browser does not support the canvas tag.</p>
-					<!-- Note: you can put any alternative content here. -->
-				</canvas>
-				<noscript>
-					<p>JavaScript is required to view the contents of this page.</p>
-				</noscript>
-	    	</div>
-			<h1>boat</h1>
-    		<p id="description"></p>
-			<p id="sources">Source code: <a href="boat.pde">boat</a> </p>
-			<p>
-			Built with <a href="http://processing.org" title="Processing">Processing</a>
-			and <a href="http://processingjs.org" title="Processing.js">Processing.js</a>
-			</p>
-		</div>
-	</body>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>tank</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="jquery/jquery.min.js"></script>
+
+    <!--revolutrion aslisdweeri-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+
+    <!-- LOADING FONTS AND ICONS -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto%3A500" rel="stylesheet" property="stylesheet"
+          type="text/css" media="all"/>
+    <link href="http://fonts.googleapis.com/css?family=Lato%3A900" rel="stylesheet" property="stylesheet"
+          type="text/css" media="all"/>
+
+
+    <link rel="stylesheet" type="text/css" href="revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" type="text/css" href="revolution/fonts/font-awesome/css/font-awesome.css">
+
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
+    <!-- REVOLUTION LAYERS STYLES -->
+
+
+    <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
+
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
+
+    <!-- FONT AND STYLE FOR BASIC DOCUMENTS, NO NEED FOR FURTHER USAGE IN YOUR PROJECTS-->
+    <link href="http://fonts.googleapis.com/css?family=Roboto%3A700%2C300" rel="stylesheet" property="stylesheet"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/noneed.css">
+    <!-- REVOLUTION JS FILES -->
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+</head>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#page-top">tank</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#video">video</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#about">Instructions</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="processing">Play</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="img/profile.png" alt="">
+                <div class="intro-text">
+                    <span class="name">tank</span>
+                    <hr class="star-light">
+                    <span class="skills">A Two Player Processing Game Controlled by Arduino Esploras </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- video Grid Section -->
+
+<section class="example" id="video">
+    <article class="content">
+
+
+        <div id="rev_slider_1057_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="4kvideos"
+             data-source="gallery" style="background-color:#000000;padding:0px;">
+            <!-- START REVOLUTION SLIDER 5.3.0.2 fullscreen mode -->
+            <div id="rev_slider_1057_1" class="rev_slider fullscreenbanner" style="display:none;"
+                 data-version="5.3.0.2">
+                <ul>    <!-- SLIDE  -->
+                    <li data-index="rs-2968" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
+                        data-hideslideonmobile="off" data-easein="Power1.easeInOut" data-easeout="Power1.easeInOut"
+                        data-masterspeed="500" data-thumb="http://revolution.themepunch.com/wp-content/" data-rotate="0"
+                        data-saveperformance="off" data-title="Youtube" data-param1="" data-param2="" data-param3=""
+                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                        data-param10="" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="assets/images/transparent.png" alt="" data-bgposition="center center"
+                             data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg"
+                             data-no-retina>
+                        <!-- LAYERS -->
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption   tp-resizeme fullscreenvideo rs-parallaxlevel-5 tp-videolayer"
+                             id="slide-2968-layer-1"
+                             data-x="0"
+                             data-y="0"
+                             data-whitespace="nowrap"
+
+                             data-type="video"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
+                             data-ytid="iNJdPyoqt8U"
+                             data-videoattributes="version=3&amp;enablejsapi=1&amp;html5=1&amp;volume=100&hd=1&wmode=opaque&showinfo=0&rel=0;&start=08;origin=http://server.local;"
+                             data-videorate="1" data-videowidth="100%" data-videoheight="100%" data-videocontrols="none"
+                             data-videoloop="none" data-forceCover="1" data-aspectratio="16:9"
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+                             data-autoplay="off"
+                             data-nextslideatend="true"
+                             data-videoposter="http://img.youtube.com/vi/iNJdPyoqt8U/maxresdefault.jpg"
+                             data-videomp4="http://revolution.themepunch.com/wp-content/uploads/2015/10/3Dparallax2.mp4"
+                             data-noposteronmobile="on"
+                             data-volume="100" data-allowfullscreenvideo="true"
+                             data-videostartat="0:0"
+                             style="z-index: 5;text-transform:left;border-width:0px;"></div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption tp-shape tp-shapewrapper "
+                             id="slide-2968-layer-4"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-width="full"
+                             data-height="full"
+                             data-whitespace="nowrap"
+                             data-visibility="['on','on','off','off']"
+
+                             data-type="shape"
+                             data-actions='[{"event":"click","action":"stoplayer","layer":"slide-2968-layer-11","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-12","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-2","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-5","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-6","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-7","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-8","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-9","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-3","delay":""},{"event":"click","action":"stopvideo","layer":"slide-2968-layer-1","delay":""}]'
+                             data-basealign="slide"
+                             data-responsive_offset="off"
+                             data-responsive="off"
+                             data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+
+                             style="z-index: 6;text-transform:left;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 0);border-width:0px;cursor:pointer;"></div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption tp-shape tp-shapewrapper "
+                             id="slide-2968-layer-2"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-width="full"
+                             data-height="full"
+                             data-whitespace="nowrap"
+                             data-visibility="['on','on','off','off']"
+
+                             data-type="shape"
+                             data-basealign="slide"
+                             data-responsive_offset="off"
+                             data-responsive="off"
+                             data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"bytrigger","speed":1000,"to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+                             data-lasttriggerstate="reset"
+                             style="z-index: 7;text-transform:left;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);border-width:0px;"></div>
+
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption VideoControls-Pause rev-btn "
+                             id="slide-2968-layer-11"
+                             data-x="['right','right','right','right']" data-hoffset="['20','20','20','20']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['20','20','20','20']"
+                             data-width="50"
+                             data-height="50"
+                             data-whitespace="nowrap"
+                             data-visibility="['on','on','off','off']"
+
+                             data-type="button"
+                             data-actions='[{"event":"click","action":"stopvideo","layer":"slide-2968-layer-1","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-11","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-12","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-2","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-5","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-6","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-3","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-7","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-8","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-9","delay":""}]'
+                             data-basealign="slide"
+                             data-responsive_offset="off"
+                             data-responsive="off"
+                             data-frames='[{"from":"opacity:0;","speed":500,"to":"o:1;sX:0.85;sY:0.85;","delay":"bytrigger","ease":"Power1.easeInOut"},{"delay":"bytrigger","speed":500,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bs:solid;"}]'
+                             data-textAlign="['center','center','center','center']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+                             data-lasttriggerstate="reset"
+                             style="z-index: 8; min-width: 50px; max-width: 50px; max-width: 50px; max-width: 50px; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                            <i class="fa-icon-pause"></i></div>
+
+                        <!-- LAYER NR. 5 -->
+                        <div class="tp-caption VideoControls-Mute rev-btn "
+                             id="slide-2968-layer-12"
+                             data-x="['right','right','right','right']" data-hoffset="['72','72','72','72']"
+                             data-y="['bottom','bottom','bottom','bottom']" data-voffset="['20','20','20','20']"
+                             data-width="50"
+                             data-height="50"
+                             data-whitespace="nowrap"
+                             data-visibility="['on','on','off','off']"
+
+                             data-type="button"
+                             data-actions='[{"event":"click","action":"toggle_mute_video","layer":"slide-2968-layer-1","delay":""}]'
+                             data-basealign="slide"
+                             data-responsive_offset="off"
+                             data-responsive="off"
+                             data-frames='[{"from":"opacity:0;","speed":500,"to":"o:1;sX:0.85;sY:0.85;","delay":"bytrigger","ease":"Power1.easeInOut"},{"delay":"bytrigger","speed":500,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bs:solid;"}]'
+                             data-textAlign="['center','center','center','center']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+                             data-lasttriggerstate="reset"
+                             style="z-index: 9; min-width: 50px; max-width: 50px; max-width: 50px; max-width: 50px; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                            <div class="rs-untoggled-content"><i class="fa-icon-volume-up"></i></div>
+                            <div class="rs-toggled-content"><i class="fa-icon-volume-off"></i></div>
+                        </div>
+
+                        <!-- LAYER NR. 6 -->
+                        <div class="tp-caption VideoControls-Play rev-btn "
+                             id="slide-2968-layer-3"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                             data-fontsize="['50','50','30','30']"
+                             data-lineheight="['120','120','80','80']"
+                             data-width="['120','120','80','80']"
+                             data-height="['120','120','80','80']"
+                             data-whitespace="nowrap"
+                             data-visibility="['on','on','off','off']"
+
+                             data-type="button"
+                             data-actions='[{"event":"click","action":"stoplayer","layer":"slide-2968-layer-3","delay":""},{"event":"click","action":"playvideo","layer":"slide-2968-layer-1","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-2","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-5","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-6","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-7","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-8","delay":""},{"event":"click","action":"stoplayer","layer":"slide-2968-layer-9","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-11","delay":""},{"event":"click","action":"startlayer","layer":"slide-2968-layer-12","delay":""}]'
+                             data-responsive_offset="on"
+                             data-responsive="off"
+                             data-frames='[{"from":"sX:0.5;sY:0.5;opacity:0;","speed":1000,"to":"o:1;sX:0.85;sY:0.85;","delay":1000,"ease":"Power1.easeInOut"},{"delay":"bytrigger","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bs:solid;"}]'
+                             data-textAlign="['center','center','center','center']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[7,7,7,7]"
+                             data-lasttriggerstate="reset"
+                             style="z-index: 10; min-width: 120px; max-width: 120px; max-width: 120px; max-width: 120px; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                            <i class="fa-icon-play"></i></div>
+
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption VideoPlayer-Title   tp-resizeme"
+                             id="slide-2968-layer-5"
+                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                             data-y="['top','top','top','top']" data-voffset="['150','130','100','80']"
+                             data-fontsize="['80','60','50','40']"
+                             data-lineheight="['40','40','30','20']"
+                             data-width="['none','none','none','360']"
+                             data-height="none"
+                             data-whitespace="['nowrap','nowrap','nowrap','normal']"
+
+                             data-type="text"
+                             data-responsive_offset="on"
+
+                             data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"bytrigger","speed":700,"to":"y:-50px;opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-textAlign="['center','center','center','center']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"
+                             data-lasttriggerstate="reset"
+                             style="z-index: 11; white-space: nowrap;text-transform:left;">VIDEO
+                        </div>
+
+                        <!-- LAYER NR. 8 -->
+                        <!-- LAYER NR. 9 -->
+                        <a class="tp-caption VideoPlayer-Social   tp-resizeme"
+                           href="http://www.youtube.com/user/MANUschwarz/featured" target="_blank"
+                           id="slide-2968-layer-7"
+                           data-x="['center','center','center','center']" data-hoffset="['-70','-70','-70','-70']"
+                           data-y="['top','top','top','top']" data-voffset="['450','400','320','320']"
+                           data-width="none"
+                           data-height="none"
+                           data-whitespace="nowrap"
+
+                           data-type="text"
+                           data-actions=''
+                           data-responsive_offset="on"
+
+                           data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0;sY:0;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;sX:0.5;sY:0.5;","delay":2000,"ease":"Elastic.easeOut"},{"delay":"bytrigger","speed":700,"to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);br:0px 0px 0px 0px;"}]'
+                           data-textAlign="['center','center','center','center']"
+                           data-paddingtop="[0,0,0,0]"
+                           data-paddingright="[0,0,0,0]"
+                           data-paddingbottom="[0,0,0,0]"
+                           data-paddingleft="[0,0,0,0]"
+                           data-lasttriggerstate="reset"
+                           style="z-index: 13; white-space: nowrap;text-transform:left;cursor:pointer;"><i
+                                class="fa-icon-youtube"></i> </a>
+
+                        <!-- LAYER NR. 10 -->
+                        <a class="tp-caption VideoPlayer-Social   tp-resizeme"
+                           href="http://twitter.com/jakeschwarz" target="_blank" id="slide-2968-layer-8"
+                           data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                           data-y="['top','top','top','top']" data-voffset="['450','400','320','320']"
+                           data-width="none"
+                           data-height="none"
+                           data-whitespace="nowrap"
+
+                           data-type="text"
+                           data-actions=''
+                           data-responsive_offset="on"
+
+                           data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0;sY:0;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;sX:0.5;sY:0.5;","delay":2150,"ease":"Elastic.easeOut"},{"delay":"bytrigger","speed":700,"to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);br:0px 0px 0px 0px;"}]'
+                           data-textAlign="['center','center','center','center']"
+                           data-paddingtop="[0,0,0,0]"
+                           data-paddingright="[0,0,0,0]"
+                           data-paddingbottom="[0,0,0,0]"
+                           data-paddingleft="[0,0,0,0]"
+                           data-lasttriggerstate="reset"
+                           style="z-index: 14; white-space: nowrap;text-transform:left;cursor:pointer;"><i
+                                class="fa-icon-twitter"></i> </a>
+
+                        <!-- LAYER NR. 11 -->
+                        <a class="tp-caption VideoPlayer-Social   tp-resizeme"
+                           href="http://www.instagram.com/MANUschwarz/" target="_blank" id="slide-2968-layer-9"
+                           data-x="['center','center','center','center']" data-hoffset="['70','70','70','70']"
+                           data-y="['top','top','top','top']" data-voffset="['450','400','320','320']"
+                           data-width="none"
+                           data-height="none"
+                           data-whitespace="nowrap"
+
+                           data-type="text"
+                           data-actions=''
+                           data-responsive_offset="on"
+
+                           data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0;sY:0;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;sX:0.5;sY:0.5;","delay":2300,"ease":"Elastic.easeOut"},{"delay":"bytrigger","speed":700,"to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;sX:1.01;sY:1.01;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);br:0px 0px 0px 0px;"}]'
+                           data-textAlign="['center','center','center','center']"
+                           data-paddingtop="[0,0,0,0]"
+                           data-paddingright="[0,0,0,0]"
+                           data-paddingbottom="[0,0,0,0]"
+                           data-paddingleft="[0,0,0,0]"
+                           data-lasttriggerstate="reset"
+                           style="z-index: 15; white-space: nowrap;text-transform:left;cursor:pointer;"><i
+                                class="fa-icon-camera-retro"></i> </a>
+                    </li>
+                    <!-- SLIDE  -->
+                </ul>
+                <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+            </div>
+        </div><!-- END REVOLUTION SLIDER -->
+        <script type="text/javascript">
+            var tpj = jQuery;
+
+            var revapi1057;
+            tpj(document).ready(function () {
+                if (tpj("#rev_slider_1057_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_1057_1");
+                } else {
+                    revapi1057 = tpj("#rev_slider_1057_1").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "//server.local/revslider/wp-content/plugins/revslider/public/assets/js/",
+                        sliderLayout: "fullscreen",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        responsiveLevels: [1240, 1024, 778, 480],
+                        visibilityLevels: [1240, 1024, 778, 480],
+                        gridwidth: [1200, 1024, 778, 480],
+                        gridheight: [675, 576, 480, 480],
+                        lazyType: "none",
+                        parallax: {
+                            type: "scroll",
+                            origo: "enterpoint",
+                            speed: 400,
+                            levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                            type: "scroll",
+                        },
+                        shadow: 0,
+                        spinner: "off",
+                        stopLoop: "on",
+                        stopAfterLoops: 0,
+                        stopAtSlide: 1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        fullScreenAutoWidth: "off",
+                        fullScreenAlignForce: "off",
+                        fullScreenOffsetContainer: "",
+                        fullScreenOffset: "60px",
+                        disableProgressBar: "on",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }
+            });
+            /*ready*/
+        </script>
+
+
+    </article>
+</section>
+
+
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Instructions</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <p>To play this game with an arduino esplora board, please download the arduino files on my github. To run the two files on different ports use the "Script Editor" on Mac to open two instances of the Arduino IDE. </p>
+            </div>
+            <div class="col-lg-4">
+                <p>Once you have connected the two different codes to the two arduinos you will
+				be able to play the game with the esploras either by downloading 
+				and running the processing program, or by using the online version</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="processing" class="btn btn-lg btn-outline">
+                    <i class="fa fa-gamepad"></i> Play the game
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; Manu Masson 2016
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Theme JavaScript -->
+<script src="js/freelancer.min.js"></script>
+
+</body>
+
 </html>
