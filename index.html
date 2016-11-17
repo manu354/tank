@@ -73,6 +73,8 @@
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+	<script src="dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 </head>
 
 <body id="page-top" class="index">
@@ -173,7 +175,7 @@
                              data-paddingleft="[0,0,0,0]"
                              data-autoplay="off"
                              data-nextslideatend="true"
-                             data-videoposter="http://img.youtube.com/vi/iNJdPyoqt8U/maxresdefault.jpg"
+                             data-videoposter="img/poster.jpg"
                              data-videomp4="http://revolution.themepunch.com/wp-content/uploads/2015/10/3Dparallax2.mp4"
                              data-noposteronmobile="on"
                              data-volume="100" data-allowfullscreenvideo="true"
@@ -482,8 +484,8 @@
 				be able to play the game with the esploras either by downloading 
 				and running the processing program, or by using the online version</p>
             </div>
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="processing" class="btn btn-lg btn-outline">
+            <div class="col-lg-12 col-md-12 text-center">
+                <a onclick="sAlert()" class="btn btn-lg btn-outline">
                     <i class="fa fa-gamepad"></i> Play the game
                 </a>
             </div>
@@ -526,6 +528,33 @@
 
 <!-- Theme JavaScript -->
 <script src="js/freelancer.min.js"></script>
+
+<script>
+
+function sAlert()
+{    swal({
+        title: "Which version do you want to use?",
+        text: "Please note the web one has less features, however both can be controller by the esplora code",
+		imageURL : "img/profile.png",
+        showCancelButton: true,
+        confirmButtonClass: 'btn-danger',
+        confirmButtonText: 'Web',
+        cancelButtonText: "Local",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      },
+      function (isConfirm) {
+        if (isConfirm) {
+         window.location.href = "processing";
+        } else {
+          
+		  window.location.href = "https://github.com/manu354/tank/";
+        }
+      });
+	  
+	  }
+
+</script>
 
 </body>
 
