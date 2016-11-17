@@ -1,3 +1,22 @@
+/*
+
+    FOR MORE INFORMATION AND THE VIDEO GO TO https://manu354.github.io/tank/
+                                
+  Author: Manu Masson
+  School: Reddam House
+  Device Name: tank
+  Date: 11/172016
+
+   Purpose: This is a game which demonstrates the feasibility of using serveral sensors and outputs from an arduino in processing.
+
+  This program uses multiple sensors and outputs, including the accelerometer, slider, temperature sensor, button and speaker. The temperatures sensor is used to set the color of the background (Higher temperature = a more red background ) The other sensors are used for control of the tank.
+
+  INSTRUCTIONS: The program can be run without the serial port functionality on the website (Cannot use slider or temperature) on the website version. To run with an arduino you must download and run the processing and arduino files on the github (linked on my website). Once you have downloaded them you need  To run the two files on different ports using the "Script Editor" on Mac to open two instances of the Arduino IDE.
+    Once you have connected the two different codes to the two arduinos you will be able to play the game with the esploras either by downloading and running the processing program, or by using the online version (limited to certain features)
+
+  If we had more time to develop the game we would add options for different ty[es of bullets and different maps with boundaries.
+*/
+
 // Number of sensors read from Esplora
 int NUM_SENSORS = 3;
 
