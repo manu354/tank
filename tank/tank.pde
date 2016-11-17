@@ -35,7 +35,7 @@ PImage buffer;
 water lake;
 
 void draw(){
-  background(10,100,0);
+  background(esplora[1] * 5,100,0);
   physics.display();
   player1.display();
   player2.display();
@@ -444,8 +444,8 @@ class shell{
   float range=6000;
   float distTraveled=0;
   shell(PVector startLoc, float Sheading, ship shotBy){
-    float Sspeed1 = esplora[0] / 200;
-    float Sspeed2 = esplora2[0] / 200;
+    float Sspeed1 = esplora[0] / 200 + 1;
+    float Sspeed2 = esplora2[0] / 200 + 1;
     firedBy = shotBy;
     //println(firedBy);
     println(this);
