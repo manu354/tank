@@ -1,32 +1,63 @@
-ship player1, player2;
-newton physics;
-PImage BG, tankImage; 
-float increment = 0.02;
-PImage buffer;
-water lake;
+/*
+
+    FOR MORE INFORMATION AND THE VIDEO GO TO https://manu354.github.io/tank/
+                                
+  Author: Manu Masson
+  School: Reddam House
+  Device Name: tank
+  Date: 11/172016
+
+   Purpose: This is a game which demonstrates the feasibility of using serveral sensors and outputs from an arduino in processing.
+
+  This program uses multiple sensors and outputs, including the accelerometer, slider, temperature sensor, button and speaker. The temperatures sensor is used to set the color of the background (Higher temperature = a more red background ) The other sensors are used for control of the tank.
+
+  INSTRUCTIONS: The program can be run without the serial port functionality on the website (Cannot use slider or temperature) on the website version. To run with an arduino you must download and run the processing and arduino files on the github (linked on my website). Once you have downloaded them you need  To run the two files on different ports using the "Script Editor" on Mac to open two instances of the Arduino IDE.
+    Once you have connected the two different codes to the two arduinos you will be able to play the game with the esploras either by downloading and running the processing program, or by using the online version (limited to certain features)
+
+  If we had more time to develop the game we would add options for different ty[es of bullets and different maps with boundaries.
+*/
+
+// Number of sensors read from Esplora
+int NUM_SENSORS = 3;
+
+// save the sensors in an array called esplora
+int esplora[] = new int[NUM_SENSORS];
+
+int NUM_SENSORS2 = 3;
+
+// save the sensors in an array called esplora
+int esplora2[] = new int[NUM_SENSORS2];
+
+
 void setup(){
+  
+  //SETS UP ARDUINO SERIAL
+  setupSerial(); 
+  
   tankImage = loadImage("tank.png");
     tankImage.resize(int(tankImage.width/1.5),int(tankImage.height/1.5));
   physics = new newton();
   smooth();
   size(700,700);
-  BG = loadImage("BG.png");
-
     lake = new water();
     player1 = new ship(100,100);
     player2 = new ship(width-100,height-100);
     buffer = createImage(width,height,ARGB);
 }
 
+
+ship player1, player2;
+newton physics;
+PImage BG, tankImage; 
+float increment = 0.02;
+PImage buffer;
+water lake;
+
 void draw(){
-  background(10,100,0);
-  //lake.ripple();
-  //lake.drawImage();
-  //image(buffer,0,0);
+  background(esplora[1] * 5,100,0);
   physics.display();
   player1.display();
   player2.display();
-  //physics.display();
   textSize(60);
   text(player2.hits, 10, 50);
   text(player1.hits, width-100, height-50);
@@ -83,8 +114,8 @@ class ship{
      momentum.y+=sin(heading)*speed;
    }
    if(backThrust){
-          momentum.x-=cos(heading)*speed/2;
-     momentum.y-=sin(heading)*speed/2;
+          momentum.x-=cos(heading)*speed;
+     momentum.y-=sin(heading)*speed;
    }
      
    loc.x+=momentum.x;
@@ -92,10 +123,10 @@ class ship{
    momentum.limit(maxSpeed);
   }
   void reload(){
-    if (frameCount - leftLast>60){
+    if (frameCount - leftLast>10){
       leftLoaded=3;
     }
-    if (frameCount - rightLast>60){
+    if (frameCount - rightLast>10){
       rightLoaded=3;
     }
     
@@ -158,6 +189,7 @@ class ship{
         side = "right";
       }
       else{
+        fireAngle += radians(180);
         leftLoaded=0;
         leftLast = frameCount;
         side = "left";
@@ -166,10 +198,7 @@ class ship{
       //(loc.x+cos(heading+radians(90))*10,loc.y+sin(heading+radians(90))*10)
     
     if ((side=="left" && PLeftLoaded == 3) || (side=="right" && PRightLoaded == 3)){
-        physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*10,loc.y+sin(heading)*10), fireAngle-radians(90 +random(-innacuracy,innacuracy)), this) ;
-       physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*-10,loc.y+sin(heading)*-10), fireAngle-radians(90 +random(-innacuracy,innacuracy)), this) ;
-
-       physics.shellManager.makeShell(new PVector(loc.x+cos(heading)*0,loc.y+sin(heading)*0), fireAngle-radians(90 +random(-innacuracy,innacuracy)),this) ;//
+       physics.shellManager.makeShell(new PVector(loc.x+cos(heading),loc.y+sin(heading)), fireAngle-radians(-180 +random(-innacuracy,innacuracy)), this) ;
   }}
   }
   
@@ -430,18 +459,30 @@ class newton{
 }
 class shell{
   PVector loc, shellMomentum;
-  float Sspeed = 3;
   ship firedBy;
   float range=6000;
   float distTraveled=0;
   shell(PVector startLoc, float Sheading, ship shotBy){
+    float Sspeed1 = esplora[0] / 200 + 1;
+    float Sspeed2 = esplora2[0] / 200 + 1;
     firedBy = shotBy;
+    //println(firedBy);
+    println(this);
     this.loc = new PVector();
     this.loc.x = startLoc.x;
     this.loc.y = startLoc.y;
     this.shellMomentum = new PVector();
-    this.shellMomentum.x = cos(Sheading)*Sspeed;
-    this.shellMomentum.y = sin(Sheading)*Sspeed;
+    if(firedBy == player1) {
+    this.shellMomentum.x = cos(Sheading)*Sspeed1;
+    this.shellMomentum.y = sin(Sheading)*Sspeed1;
+    
+    }
+    
+     if(firedBy == player2) {
+    this.shellMomentum.x = cos(Sheading)*Sspeed2;
+    this.shellMomentum.y = sin(Sheading)*Sspeed2;
+    
+    }
   }
   void display(){
     stroke(0);
@@ -638,8 +679,8 @@ class water{
   float offInc = 0.02;
   float windDir = radians(180);
   float xoff = offSetX;
-  int[][] heightMap = new int[BG.width][BG.height];
-  int[][] rippleMap = new int[BG.width][BG.height];
+  int[][] heightMap = new int[400][400];
+  int[][] rippleMap = new int[400][400];
   float xnoise = 0.0;
   float ynoise = 0.0;
   float inc = .0000006;
