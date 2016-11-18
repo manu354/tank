@@ -1,20 +1,25 @@
-/*
 
+
+/*
     FOR MORE INFORMATION AND THE VIDEO GO TO https://manu354.github.io/tank/
                                 
   Author: Manu Masson
   School: Reddam House
   Device Name: tank
-  Date: 11/172016
-
+  Date: 11/17/2016
+   
    Purpose: This is a game which demonstrates the feasibility of using serveral sensors and outputs from an arduino in processing.
-
-  This program uses multiple sensors and outputs, including the accelerometer, slider, temperature sensor, button and speaker. The temperatures sensor is used to set the color of the background (Higher temperature = a more red background ) The other sensors are used for control of the tank.
-
-  INSTRUCTIONS: The program can be run without the serial port functionality on the website (Cannot use slider or temperature) on the website version. To run with an arduino you must download and run the processing and arduino files on the github (linked on my website). Once you have downloaded them you need  To run the two files on different ports using the "Script Editor" on Mac to open two instances of the Arduino IDE.
+ 
+ This program uses multiple sensors and outputs, including the accelerometer, slider, temperature sensor, button, speaker and RGB lights. The temperatures sensor is used to set the color of the background (Higher temperature = a more red background ) The other sensors are used for control of the tank.
+ 
+ Video Transcript:
+ To control the game using arduino esplora download the two arduino files from the github, open two instances of the arduino IDE’s, on mac you can do this by using the script editor. Once you have uploaded the two different codes to two esplora boards you can play, either on the website version which has limited features, or on the native version which allows for the use of the serial and therefore all features can be implemented.To control the tanks, the accelerometer is used to move around; hold the arduino upwards and it will start moving; downwards and will stop. Left and right will change the direction. To shoot press button one, the esplora will provide feedback by making a sound with the speaker. 
+Those features are all available when you play via the website. If you run the processing app locally you can change the speed of your shots by using the slider. Also The background color of the app is changed according to the ambient temperature when on the local app. 
+  
+  INSTRUCTIONS: The program can be run without the serial port functionality on the website (Cannot use slider or temperature) on the website version. To run with an arduino you must download and run the processing and arduino files on the github (linked on my website). Once you have downloaded them you need  To run the two files on different ports using the "Script Editor" on Mac to open two instances of the Arduino IDE. http://www.cultofmac.com/200062/run-multiple-copies-of-an-app-at-once-on-your-mac-os-x-tips/
     Once you have connected the two different codes to the two arduinos you will be able to play the game with the esploras either by downloading and running the processing program, or by using the online version (limited to certain features)
-
-  If we had more time to develop the game we would add options for different ty[es of bullets and different maps with boundaries.
+ 
+ If we had more time to develop the game we would add options for different types of bullets and different maps with boundaries.
 */
 
 // Number of sensors read from Esplora
