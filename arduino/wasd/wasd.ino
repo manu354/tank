@@ -5,7 +5,7 @@
  * Manu Masson
  * Reddam house
  * 
- * TANK
+ * TANK 
  * 
  * To control a processing game by using different sensors.
  * 
@@ -48,7 +48,7 @@ void loop() {
   }
   else if (xAxis < -100 && abs(xAxis) > zAxis && abs(xAxis) > yAxis){
    Esplora.writeRGB(200,0,0);
-  Keyboard.press('a');
+  Keyboard.press('d');
   }
   
   else if (yAxis < -100 && abs(yAxis) > xAxis && abs(yAxis) > zAxis){
@@ -57,7 +57,7 @@ void loop() {
   }
   else if (xAxis > 100 && abs(xAxis) > zAxis && abs(xAxis) > yAxis){
     Esplora.writeRGB(0,200,0);
-    Keyboard.press('d');
+    Keyboard.press('a');
   }
   else if (Esplora.readButton(1) == LOW){
     Esplora.tone(100, 500) ;

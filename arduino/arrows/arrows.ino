@@ -35,7 +35,7 @@ void loop()
   }
   else if (xAxis < -100 && abs(xAxis) > zAxis && abs(xAxis) > yAxis){
    Esplora.writeRGB(200,0,0);
-  Keyboard.press(KEY_LEFT_ARROW);
+  Keyboard.press(KEY_RIGHT_ARROW);
   }
   
   else if (yAxis < -100 && abs(yAxis) > xAxis && abs(yAxis) > zAxis){
@@ -44,7 +44,7 @@ void loop()
   }
   else if (xAxis > 100 && abs(xAxis) > zAxis && abs(xAxis) > yAxis){
     Esplora.writeRGB(0,200,0);
-    Keyboard.press(KEY_RIGHT_ARROW);
+    Keyboard.press(KEY_LEFT_ARROW);
   }
 
   else if (Esplora.readButton(1) == LOW){
